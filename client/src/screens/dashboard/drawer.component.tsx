@@ -1,4 +1,5 @@
-import { Box, Divider, Drawer, List, Typography } from '@mui/material';
+import { Box, Drawer, List } from '@mui/material';
+import { MenuEnum } from '../../constants/menu.enum';
 import MobileMenuListItemComponent from './mobile-menu-list-item.component';
 
 interface PropTypes {
@@ -22,18 +23,14 @@ const DrawerComponent = ({ handleDrawerToggle, mobileOpen }: PropTypes) => {
           width: 240,
         },
       }}>
-      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-        <Typography variant="h6" sx={{ my: 2 }}>
-          MUI
-        </Typography>
-        <Divider />
+      <Box onClick={handleDrawerToggle}>
         <List>
-          <MobileMenuListItemComponent name="Menu 1" />
-          <MobileMenuListItemComponent name="Menu 2" />
-          <MobileMenuListItemComponent name="Menu 3" />
-          <MobileMenuListItemComponent name="Menu 4" />
+          <MobileMenuListItemComponent name={MenuEnum.Flights} />
+          <MobileMenuListItemComponent name={MenuEnum.Hotels} />
+          <MobileMenuListItemComponent name={MenuEnum.FlightHotels} />
+          <MobileMenuListItemComponent name={MenuEnum.CarRentals} />
         </List>
-      </Box>{' '}
+      </Box>
     </Drawer>
   );
 };

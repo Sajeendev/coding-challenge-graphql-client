@@ -19,7 +19,10 @@ const DashboardScreen = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBarComponent handleDrawerToggle={handleDrawerToggle} />
+      <AppBarComponent
+        handleDrawerToggle={handleDrawerToggle}
+        mobileDrawerOpen={mobileOpen}
+      />
       <Box component="nav">
         <DrawerComponent
           handleDrawerToggle={handleDrawerToggle}

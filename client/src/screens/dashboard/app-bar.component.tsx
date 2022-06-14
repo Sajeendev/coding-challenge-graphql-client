@@ -1,14 +1,32 @@
-import { MenuBook } from '@mui/icons-material';
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
+import { Menu, MenuOpen } from '@mui/icons-material';
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Toolbar,
+  Typography,
+  useTheme,
+} from '@mui/material';
+import { MenuEnum } from '../../constants/menu.enum';
+import AccountMenuComponent from './account-menu.component';
 import MenuButtonComponent from './menu-button.component';
 
 interface PropTypes {
   handleDrawerToggle: () => void;
+  mobileDrawerOpen: boolean;
 }
 
-const AppBarComponent = ({ handleDrawerToggle }: PropTypes) => {
+const AppBarComponent = ({
+  handleDrawerToggle,
+  mobileDrawerOpen,
+}: PropTypes) => {
+  const theme = useTheme();
+
   return (
-    <AppBar component="nav">
+    <AppBar
+      component="nav"
+      position="fixed"
+      sx={{ zIndex: theme.zIndex.drawer + 1 }}>
       <Toolbar>
         <IconButton
           color="inherit"
@@ -16,16 +34,30 @@ const AppBarComponent = ({ handleDrawerToggle }: PropTypes) => {
           edge="start"
           onClick={handleDrawerToggle}
           sx={{ mr: 2, display: { sm: 'none' } }}>
-          <MenuBook />
+          {mobileDrawerOpen ? <MenuOpen /> : <Menu />}
         </IconButton>
-        <Typography variant="h6" component="div">
-          MUI
-        </Typography>
+
+        <img
+          src="/assets/logos/logo-edreams.jpeg"
+          alt="Logo"
+          style={{ maxHeight: '60px', maxWidth: '120px', marginRight: '10px' }}
+        />
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-          <MenuButtonComponent name="Menu 1" />
-          <MenuButtonComponent name="Menu 2" />
-          <MenuButtonComponent name="Menu 3" />
-          <MenuButtonComponent name="Menu 4" />
+          <MenuButtonComponent name={MenuEnum.Flights} />
+          <MenuButtonComponent name={MenuEnum.Hotels} />
+          <MenuButtonComponent name={MenuEnum.FlightHotels} />
+          <MenuButtonComponent name={MenuEnum.CarRentals} />
+        </Box>
+        <Box sx={{ flexGrow: 1 }} />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 1,
+          }}>
+          <AccountMenuComponent />
+          <Typography>EN</Typography>
         </Box>
       </Toolbar>
     </AppBar>
