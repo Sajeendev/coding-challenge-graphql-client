@@ -14,7 +14,7 @@ const GlobalThemeProvider = ({ children }: { children: any }) => {
 
     palette: {
       primary: {
-        main: '#0363F7',
+        main: '#005CAD',
       },
       secondary: {
         main: '#F70363',
