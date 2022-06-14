@@ -1,8 +1,4 @@
-# Server
-
-## Description
-
-Flight searching app demo.
+# Flight searching app test
 
 ## Installation
 
@@ -13,9 +9,12 @@ $ npm install
 ## Running the app
 
 ```bash
-# dev watch mode
-$ npm run start:dev
+# Start server and client
+$ npm run dev
 
-# prod
-$ npm run start
+# start server
+$ npm run sever
+
+# start client
+$ npm run client
 ```
