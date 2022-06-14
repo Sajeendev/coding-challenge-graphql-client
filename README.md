@@ -1,4 +1,4 @@
-# Flight searching app test
+# Flight searching test app
 
 ## Installation
 

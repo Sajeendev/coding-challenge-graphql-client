@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { MenuEnum } from '../../constants/menu.enum';
 import AccountMenuComponent from './account-menu.component';
+import MoreMenuListComponent from './drop-down-menu-list.component';
 import MenuButtonComponent from './menu-button.component';
 
 interface PropTypes {
@@ -46,8 +47,9 @@ const AppBarComponent = ({
           <MenuButtonComponent name={MenuEnum.Flights} />
           <MenuButtonComponent name={MenuEnum.Hotels} />
           <MenuButtonComponent name={MenuEnum.FlightHotels} />
-          <MenuButtonComponent name={MenuEnum.CarRentals} />
+          <MoreMenuListComponent />
         </Box>
+
         <Box sx={{ flexGrow: 1 }} />
         <Box
           sx={{

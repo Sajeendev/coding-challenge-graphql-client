@@ -1,6 +1,6 @@
 import { Box, Drawer, List } from '@mui/material';
 import { MenuEnum } from '../../constants/menu.enum';
-import MobileMenuListItemComponent from './mobile-menu-list-item.component';
+import MenuListItemComponent from './menu-list-item.component';
 
 interface PropTypes {
   handleDrawerToggle: () => void;
@@ -25,10 +25,14 @@ const DrawerComponent = ({ handleDrawerToggle, mobileOpen }: PropTypes) => {
       }}>
       <Box onClick={handleDrawerToggle}>
         <List>
-          <MobileMenuListItemComponent name={MenuEnum.Flights} />
-          <MobileMenuListItemComponent name={MenuEnum.Hotels} />
-          <MobileMenuListItemComponent name={MenuEnum.FlightHotels} />
-          <MobileMenuListItemComponent name={MenuEnum.CarRentals} />
+          <MenuListItemComponent name={MenuEnum.Flights} />
+          <MenuListItemComponent name={MenuEnum.Hotels} />
+          <MenuListItemComponent name={MenuEnum.FlightHotels} />
+          <MenuListItemComponent name={MenuEnum.CarRentals} />
+          <MenuListItemComponent name={MenuEnum.ShuttlesAndTransfers} />
+          <MenuListItemComponent name={MenuEnum.Activities} />
+          <MenuListItemComponent name={MenuEnum.HolidayRentals} />
+          <MenuListItemComponent name={MenuEnum.BeachHolidays} />
         </List>
       </Box>
     </Drawer>

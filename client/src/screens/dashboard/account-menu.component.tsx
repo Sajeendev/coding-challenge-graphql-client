@@ -1,4 +1,4 @@
-import { Person, Settings } from '@mui/icons-material';
+import { ConnectingAirports, Person, Settings } from '@mui/icons-material';
 import Logout from '@mui/icons-material/Logout';
 import { Divider, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
@@ -98,7 +98,13 @@ const AccountMenuComponent = () => {
 
         <MenuItemComponent
           icon={<Person fontSize="small" />}
-          text="Profile"
+          text="My Account"
+          onClick={() => {}}
+        />
+
+        <MenuItemComponent
+          icon={<ConnectingAirports fontSize="small" />}
+          text="My Trips"
           onClick={() => {}}
         />
 

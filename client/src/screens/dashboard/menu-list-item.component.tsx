@@ -9,7 +9,7 @@ interface PropTypes {
   name: string;
 }
 
-const MobileMenuListItemComponent = ({ name }: PropTypes) => {
+const MenuListItemComponent = ({ name }: PropTypes) => {
   return (
     <ListItem disablePadding>
       <ListItemButton sx={{ textAlign: 'center' }}>
@@ -23,4 +23,4 @@ const MobileMenuListItemComponent = ({ name }: PropTypes) => {
   );
 };
 
-export default MobileMenuListItemComponent;
+export default MenuListItemComponent;
