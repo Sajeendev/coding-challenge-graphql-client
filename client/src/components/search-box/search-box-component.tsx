@@ -5,8 +5,8 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { DesktopDatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -51,6 +51,10 @@ const SearchBoxComponent = ({
     setParams({ ...params, arrivalLocation: event.target.value });
   };
 
+  const handleChangeDepartureDate = (newValue: any) => {
+    setParams({ ...params, departureDate: newValue });
+  };
+
   const handleSearch = useCallback(() => {
     isHomeScreen && navigate(AppUrlEnum.Result);
     dispatch(searchParamsAction(params));
@@ -60,7 +64,7 @@ const SearchBoxComponent = ({
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sm={3}>
+      <Grid item xs={12} sm={4} md={3}>
         {isLoading ? (
           <RectangularSkeletonComponent height={40} />
         ) : (
@@ -72,7 +76,7 @@ const SearchBoxComponent = ({
           />
         )}
       </Grid>
-      <Grid item xs={12} sm={3}>
+      <Grid item xs={12} sm={4} md={3}>
         {isLoading ? (
           <RectangularSkeletonComponent height={40} />
         ) : (
@@ -84,26 +88,33 @@ const SearchBoxComponent = ({
           />
         )}
       </Grid>
-      <Grid item xs={12} sm={3}>
+      <Grid item xs={12} sm={4} md={3}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DatePicker
+          <DesktopDatePicker
+            // disablePast
             label="Departure date"
+            inputFormat={'dd/MM/yyyy'}
             value={params.departureDate}
-            disablePast
-            onChange={newValue => {
-              setParams({ ...params, departureDate: newValue });
-            }}
+            onChange={handleChangeDepartureDate}
             renderInput={params => (
-              <TextField size="small" fullWidth {...params} />
+              <TextField {...params} size="small" fullWidth />
             )}
           />
         </LocalizationProvider>
       </Grid>
 
-      <Grid item xs={12} sm={3}>
-        <Button fullWidth variant="contained" onClick={handleSearch}>
+      <Grid item xs={12} sm={4} md={3}>
+        <Button
+          fullWidth
+          variant="contained"
+          onClick={handleSearch}
+          disabled={isLoading}>
           <Typography sx={{ textTransform: 'none' }}>
-            {isHomeScreen ? 'Search' : 'Change search'}
+            {isLoading
+              ? 'Loading...'
+              : isHomeScreen
+              ? 'Search'
+              : 'Change search'}
           </Typography>
         </Button>
       </Grid>
