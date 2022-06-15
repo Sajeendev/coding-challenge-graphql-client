@@ -5,13 +5,22 @@ import { getLocationsAction } from '../../state/flight-search/get-locations.slic
 import { useAppDispatch, useAppSelector } from '../../state/store';
 import { globalProps } from '../../styles/global.props';
 
-const SearchScreen = () => {
+const ResultScreen = () => {
   const dispatch = useAppDispatch();
   /**
    * Global state
    */
   const getLocationsState = useAppSelector(state => state.getLocationsState);
   const { loading, success, data } = getLocationsState;
+
+  const getItinerariesState = useAppSelector(
+    state => state.getItinerariesState
+  );
+  const {
+    loading: ItinerariesLoading,
+    success: ItinerariesSuccess,
+    data: ItinerariesData,
+  } = getItinerariesState;
 
   /**
    * Effects
@@ -39,4 +48,4 @@ const SearchScreen = () => {
   );
 };
 
-export default SearchScreen;
+export default ResultScreen;

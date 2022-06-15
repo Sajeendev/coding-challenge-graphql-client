@@ -8,9 +8,12 @@ import {
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppUrlEnum } from '../../routes/app-url.enum';
+import { getItinerariesAction } from '../../state/flight-search/get-itineraries.slice';
+import { searchParamsAction } from '../../state/flight-search/search-params.slice';
+import { useAppDispatch } from '../../state/store';
 import { RectangularSkeletonComponent } from '../skeletons/skeleton.component';
 import LocationDropDownListComponant from './location-drop-down-list-componant';
 
@@ -26,28 +29,34 @@ const SearchBoxComponent = ({
   isHomeScreen,
 }: PropTypes) => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   /**
    * Local state
    */
-  const [departureLocation, setDepartureLocation] = useState('');
-  const [departureDate, setDepartureDate] = useState<Date | null>(null);
-  const [arrivalLocation, setArrivalLocation] = useState('');
+  const [params, setParams] = useState({
+    departureLocation: '',
+    departureDate: null,
+    arrivalLocation: '',
+  });
 
   /**
    * Handlers
    */
   const handleChangeDepartureLocation = (event: SelectChangeEvent) => {
-    setDepartureLocation(event.target.value);
+    setParams({ ...params, departureLocation: event.target.value });
   };
 
   const handleChangeArrivalLocation = (event: SelectChangeEvent) => {
-    setArrivalLocation(event.target.value);
+    setParams({ ...params, arrivalLocation: event.target.value });
   };
 
-  const handleSearch = () => {
-    isHomeScreen && navigate(AppUrlEnum.Search);
-  };
+  const handleSearch = useCallback(() => {
+    isHomeScreen && navigate(AppUrlEnum.Result);
+    dispatch(searchParamsAction(params));
+    dispatch(getItinerariesAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params]);
 
   return (
     <Grid container spacing={2}>
@@ -57,7 +66,7 @@ const SearchBoxComponent = ({
         ) : (
           <LocationDropDownListComponant
             label="Departure"
-            value={departureLocation}
+            value={params.departureLocation}
             locations={locations}
             handleChange={handleChangeDepartureLocation}
           />
@@ -69,7 +78,7 @@ const SearchBoxComponent = ({
         ) : (
           <LocationDropDownListComponant
             label="Arrival"
-            value={arrivalLocation}
+            value={params.arrivalLocation}
             locations={locations}
             handleChange={handleChangeArrivalLocation}
           />
@@ -79,10 +88,10 @@ const SearchBoxComponent = ({
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DatePicker
             label="Departure date"
-            value={departureDate}
+            value={params.departureDate}
             disablePast
             onChange={newValue => {
-              setDepartureDate(newValue);
+              setParams({ ...params, departureDate: newValue });
             }}
             renderInput={params => (
               <TextField size="small" fullWidth {...params} />
