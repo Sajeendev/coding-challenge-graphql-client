@@ -50,7 +50,7 @@ export const getLocationsAction =
       dispatch(getLocationsRequest());
 
       const response = await axios.get(`${envs.serverUrl}/locations`);
-
+      console.log(response);
       if (response?.data) {
         dispatch(getLocationsSuccess(response.data));
       }

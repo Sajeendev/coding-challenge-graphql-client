@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
+var cors = require('cors');
 const itinerariesData = require('./data/itineraries.json');
 const locations = require('./data/locations.json');
 const port = 8000;
+
+app.use(cors());
 
 app.get('/itineraries', (req, res) => res.send(itinerariesData));
 app.get('/locations', (req, res) => res.send(locations));
