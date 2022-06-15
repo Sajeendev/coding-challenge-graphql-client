@@ -33,7 +33,7 @@ const HomeScreen = () => {
         <SearchBoxComponent
           locations={data}
           isLoading={loading}
-          searchButtonLabel="Search"
+          isHomeScreen={true}
         />
       </Paper>
     </Box>

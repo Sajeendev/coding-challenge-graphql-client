@@ -17,13 +17,13 @@ import LocationDropDownListComponant from './location-drop-down-list-componant';
 interface PropTypes {
   locations: string[];
   isLoading: boolean;
-  searchButtonLabel: string;
+  isHomeScreen: boolean;
 }
 
 const SearchBoxComponent = ({
   locations,
   isLoading,
-  searchButtonLabel,
+  isHomeScreen,
 }: PropTypes) => {
   const navigate = useNavigate();
 
@@ -46,7 +46,7 @@ const SearchBoxComponent = ({
   };
 
   const handleSearch = () => {
-    navigate(AppUrlEnum.Search);
+    isHomeScreen && navigate(AppUrlEnum.Search);
   };
 
   return (
@@ -94,7 +94,7 @@ const SearchBoxComponent = ({
       <Grid item xs={12} sm={3}>
         <Button fullWidth variant="contained" onClick={handleSearch}>
           <Typography sx={{ textTransform: 'none' }}>
-            {searchButtonLabel}
+            {isHomeScreen ? 'Search' : 'Change search'}
           </Typography>
         </Button>
       </Grid>

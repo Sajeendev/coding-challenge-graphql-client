@@ -32,7 +32,7 @@ const SearchScreen = () => {
         <SearchBoxComponent
           locations={data}
           isLoading={loading}
-          searchButtonLabel="Change Search"
+          isHomeScreen={false}
         />
       </Paper>
     </Box>
