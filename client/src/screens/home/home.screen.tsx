@@ -65,7 +65,7 @@ const HomeScreen = () => {
           gridTemplateColumns="repeat(auto-fit, minmax(300px, 350px))"
           gap={4}
           justifyContent="center"
-          mt={5}>
+          sx={{ margin: '50px 0', padding: '10px' }}>
           <HottestDealCardComponent
             title="Deal 1"
             imageUrl="https://source.unsplash.com/random"
