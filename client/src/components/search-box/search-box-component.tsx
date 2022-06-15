@@ -91,7 +91,7 @@ const SearchBoxComponent = ({
       <Grid item xs={12} sm={4} md={3}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DesktopDatePicker
-            // disablePast
+            disablePast
             label="Departure date"
             inputFormat={'dd/MM/yyyy'}
             value={params.departureDate}

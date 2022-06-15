@@ -7,7 +7,7 @@ import { AppThunk } from '../store';
 /**
  * Data
  */
-interface DateResponseInterface {
+export interface DateResponseInterface {
   year: number;
   month: number;
   dayOfMonth: number;

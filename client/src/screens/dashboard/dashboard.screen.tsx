@@ -34,7 +34,6 @@ const DashboardScreen = () => {
         component="main"
         sx={{
           flexGrow: 1,
-          p: { xs: 1, sm: 2, md: 3 },
           background: ColorsEnum.DashboardBackground,
           minHeight: '100vh',
           height: '100%',

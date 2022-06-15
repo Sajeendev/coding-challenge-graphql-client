@@ -1,10 +1,12 @@
-import { Box, Paper, Stack } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 import React, { useEffect } from 'react';
 import SearchBoxComponent from '../../components/search-box/search-box-component';
+import { RectangularSkeletonComponent } from '../../components/skeletons/skeleton.component';
 import { getLocationsAction } from '../../state/flight-search/get-locations.slice';
 import { useAppDispatch, useAppSelector } from '../../state/store';
 import { globalProps } from '../../styles/global.props';
 import { isEqualDates } from '../../utils/date.utils';
+import ResultItemComponent from './result-item.component';
 
 const ResultScreen = () => {
   const dispatch = useAppDispatch();
@@ -22,9 +24,9 @@ const ResultScreen = () => {
     state => state.getItinerariesState
   );
   const {
-    loading: ItinerariesLoading,
-    success: ItinerariesSuccess,
-    data: ItinerariesData,
+    loading: itinerariesLoading,
+    success: itinerariesSuccess,
+    data: itinerariesData,
   } = getItinerariesState;
 
   const searchParamsState = useAppSelector(state => state.searchParamsState);
@@ -41,24 +43,30 @@ const ResultScreen = () => {
 
   return (
     <Box sx={{ ...globalProps.box1200 }}>
-      <Stack spacing={1}>
-        <Paper
-          elevation={0}
-          sx={{
-            ...globalProps.paperContainer,
-          }}>
-          <SearchBoxComponent
-            locations={locationData}
-            isLoading={locationLoading}
-            isHomeScreen={false}
-          />
-        </Paper>
+      <Paper
+        variant="outlined"
+        elevation={0}
+        sx={{
+          ...globalProps.paperContainer,
+          marginBottom: '20px',
+        }}>
+        <SearchBoxComponent
+          locations={locationData}
+          isLoading={locationLoading}
+          isHomeScreen={false}
+        />
+      </Paper>
 
-        {ItinerariesData?.filter(data =>
-          params.departureLocation
-            ? data?.departureLocation === params.departureLocation
-            : data
-        )
+      {itinerariesLoading ? (
+        <RectangularSkeletonComponent height={700} />
+      ) : (
+        itinerariesSuccess &&
+        itinerariesData
+          ?.filter(data =>
+            params.departureLocation
+              ? data?.departureLocation === params.departureLocation
+              : data
+          )
           ?.filter(data =>
             params.arrivalLocation
               ? data?.arrivalLocation === params.arrivalLocation
@@ -74,17 +82,8 @@ const ResultScreen = () => {
                 )
               : data
           )
-          ?.map((data, i) => (
-            <Paper elevation={0} sx={{ ...globalProps.paperContainer }} key={i}>
-              <h4>{data?.departureLocation}</h4>
-              <h4>{data?.arrivalLocation}</h4>
-              <h4>
-                {data?.departureDate?.year}-{data?.departureDate?.month + 1}-
-                {data?.departureDate?.dayOfMonth}
-              </h4>
-            </Paper>
-          ))}
-      </Stack>
+          ?.map((data, i) => <ResultItemComponent data={data} key={i} />)
+      )}
     </Box>
   );
 };
