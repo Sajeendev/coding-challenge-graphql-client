@@ -5,6 +5,7 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
+import React from 'react';
 
 interface PropTypes {
   label: string;
@@ -31,7 +32,7 @@ const LocationDropDownListComponant = ({
           <em>None</em>
         </MenuItem>
 
-        {locations.map((location, i) => {
+        {locations?.map((location, i) => {
           return (
             <MenuItem value={location} key={i}>
               {location}

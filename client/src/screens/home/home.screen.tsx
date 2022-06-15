@@ -1,5 +1,5 @@
 import { Box, Paper } from '@mui/material';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import SearchBoxComponent from '../../components/search-box/search-box-component';
 import { getLocationsAction } from '../../state/flight-search/get-locations.slice';
 import { useAppDispatch, useAppSelector } from '../../state/store';
@@ -30,7 +30,11 @@ const HomeScreen = () => {
         sx={{
           ...globalProps.paperContainer,
         }}>
-        <SearchBoxComponent locations={data} isLoading={loading} />
+        <SearchBoxComponent
+          locations={data}
+          isLoading={loading}
+          searchButtonLabel="Search"
+        />
       </Paper>
     </Box>
   );

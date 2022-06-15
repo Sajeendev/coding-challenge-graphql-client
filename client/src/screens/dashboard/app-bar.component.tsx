@@ -7,8 +7,12 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MenuEnum } from '../../constants/menu.enum';
+import { AppUrlEnum } from '../../routes/app-url.enum';
 import AccountMenuComponent from './account-menu.component';
+import { useDashboardStyles } from './dashboard.style';
 import MoreMenuListComponent from './drop-down-menu-list.component';
 import MenuButtonComponent from './menu-button.component';
 
@@ -22,6 +26,8 @@ const AppBarComponent = ({
   mobileDrawerOpen,
 }: PropTypes) => {
   const theme = useTheme();
+  const navigate = useNavigate();
+  const styles = useDashboardStyles();
 
   return (
     <AppBar
@@ -41,8 +47,10 @@ const AppBarComponent = ({
         <img
           src="/assets/logos/logo-edreams.jpeg"
           alt="Logo"
-          style={{ maxHeight: '60px', maxWidth: '120px', marginRight: '10px' }}
+          className={styles.appBarLogo}
+          onClick={() => navigate(AppUrlEnum.Home)}
         />
+
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           <MenuButtonComponent name={MenuEnum.Flights} />
           <MenuButtonComponent name={MenuEnum.Hotels} />

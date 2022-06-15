@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NotFoundScreen from '../screens/error/not-found.screen';
 import HomeScreen from '../screens/home/home.screen';

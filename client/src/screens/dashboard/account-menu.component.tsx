@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { MouseEvent, useState } from 'react';
+import React, { MouseEvent, useState } from 'react';
 
 interface MenuItemPropTypes {
   icon: JSX.Element;

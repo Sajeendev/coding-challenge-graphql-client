@@ -1,4 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import React from 'react';
 
 const GlobalThemeProvider = ({ children }: { children: any }) => {
   const customTheme = createTheme({

@@ -1,4 +1,5 @@
 import { Button, Typography } from '@mui/material';
+import React from 'react';
 
 interface PropTypes {
   name: string;
