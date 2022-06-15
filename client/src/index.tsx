@@ -4,10 +4,11 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { CssBaseline } from '@mui/material';
 import { createGenerateClassName, StylesProvider } from '@mui/styles';
-import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import store from './state/store';
 import GlobalThemeProvider from './styles/global-theme.provider';
 
 const generateClassName = createGenerateClassName({
@@ -18,7 +19,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
         <GlobalThemeProvider>
@@ -27,5 +28,5 @@ root.render(
         </GlobalThemeProvider>
       </StylesProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </Provider>
 );
