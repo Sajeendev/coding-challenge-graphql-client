@@ -3,7 +3,7 @@ import { AppThunk } from '../store';
 
 export interface ParamsDataInterface {
   departureLocation: string;
-  departureDate: Date | any;
+  departureDate: Date | null;
   arrivalLocation: string;
 }
 

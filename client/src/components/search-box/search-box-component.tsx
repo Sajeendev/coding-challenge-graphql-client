@@ -42,7 +42,7 @@ const SearchBoxComponent = ({
    */
   const [params, setParams] = useState({
     departureLocation: searchParams.departureLocation,
-    departureDate: searchParams.departureDate,
+    departureDate: searchParams.departureDate || null,
     arrivalLocation: searchParams.arrivalLocation,
   });
 
