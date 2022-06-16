@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-$ npm install
+$ npm install && cd client && npm install
 ```
 
 ## Running the app
