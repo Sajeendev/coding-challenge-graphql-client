@@ -8,7 +8,7 @@ import {
 import { DatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import { getItinerariesAction } from '../../state/flight-search/get-itineraries.slice';
@@ -41,9 +41,9 @@ const SearchBoxComponent = ({
    * Local state
    */
   const [params, setParams] = useState({
-    departureLocation: searchParams.departureLocation,
+    departureLocation: searchParams.departureLocation || '',
     departureDate: searchParams.departureDate || null,
-    arrivalLocation: searchParams.arrivalLocation,
+    arrivalLocation: searchParams.arrivalLocation || '',
   });
 
   /**

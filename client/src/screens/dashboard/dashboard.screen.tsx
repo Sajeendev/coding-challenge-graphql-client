@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AppRoutes from '../../routes/app.routes';
 import { ColorsEnum } from '../../styles/colors.enum';
 import AppBarComponent from './app-bar.component';

@@ -7,7 +7,6 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MenuEnum } from '../../constants/menu.enum';
 import { AppUrlEnum } from '../../routes/app-url.enum';

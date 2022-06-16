@@ -1,5 +1,5 @@
 import { Box, Paper, Stack, Typography } from '@mui/material';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import SearchBoxComponent from '../../components/search-box/search-box-component';
 import { getLocationsAction } from '../../state/flight-search/get-locations.slice';
 import { useAppDispatch, useAppSelector } from '../../state/store';

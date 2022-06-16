@@ -1,6 +1,5 @@
 import { Circle, Flight, FlightLand, FlightTakeoff } from '@mui/icons-material';
 import { Box, Fab, Grid, Paper, Stack, Typography } from '@mui/material';
-import React from 'react';
 import { ItineraryDataInterface } from '../../state/flight-search/get-itineraries.slice';
 import { globalProps } from '../../styles/global.props';
 

@@ -1,6 +1,5 @@
 import { CssBaseline } from '@mui/material';
 import { createGenerateClassName, StylesProvider } from '@mui/styles';
-import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import store from '../state/store';

@@ -1,5 +1,4 @@
 import { Box, Drawer, List } from '@mui/material';
-import React from 'react';
 import { MenuEnum } from '../../constants/menu.enum';
 import MenuListItemComponent from './menu-list-item.component';
 

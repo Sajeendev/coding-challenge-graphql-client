@@ -5,7 +5,6 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
-import React from 'react';
 
 interface PropTypes {
   title: string;

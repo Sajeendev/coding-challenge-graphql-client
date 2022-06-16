@@ -1,6 +1,6 @@
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import { Button, Menu, Typography } from '@mui/material';
-import React, { MouseEvent, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { MenuEnum } from '../../constants/menu.enum';
 import MenuListItemComponent from './menu-list-item.component';
 

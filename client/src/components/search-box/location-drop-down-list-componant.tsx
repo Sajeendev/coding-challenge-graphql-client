@@ -5,7 +5,6 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-import React from 'react';
 
 interface PropTypes {
   label: string;
