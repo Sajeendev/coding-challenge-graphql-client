@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import TestComponentWrapper from '../../../__test__/test-component-renderer';
+import TestComponentRenderer from '../../../__test__/test-component-renderer';
 import SearchBoxComponent from '../search-box-component';
 
 /**
@@ -9,13 +9,13 @@ import SearchBoxComponent from '../search-box-component';
  */
 test('renders dropdown lists', () => {
   render(
-    <TestComponentWrapper>
+    <TestComponentRenderer>
       <SearchBoxComponent
         locations={[]}
         isLoading={false}
         isHomeScreen={false}
       />
-    </TestComponentWrapper>
+    </TestComponentRenderer>
   );
 
   const departureDropDown = screen.getByTestId('search-dropdown-departure');
@@ -30,13 +30,13 @@ test('renders dropdown lists', () => {
  */
 test('renders date picker', () => {
   render(
-    <TestComponentWrapper>
+    <TestComponentRenderer>
       <SearchBoxComponent
         locations={[]}
         isLoading={false}
         isHomeScreen={false}
       />
-    </TestComponentWrapper>
+    </TestComponentRenderer>
   );
 
   const datepickerDeparture = screen.getByTestId(

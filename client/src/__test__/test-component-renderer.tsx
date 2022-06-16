@@ -14,7 +14,7 @@ interface PropTypes {
   children: JSX.Element;
 }
 
-const TestComponentWrapper = ({ children }: PropTypes) => {
+const TestComponentRenderer = ({ children }: PropTypes) => {
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -29,4 +29,4 @@ const TestComponentWrapper = ({ children }: PropTypes) => {
   );
 };
 
-export default TestComponentWrapper;
+export default TestComponentRenderer;

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import TestComponentWrapper from '../../../__test__/test-component-renderer';
+import TestComponentRenderer from '../../../__test__/test-component-renderer';
 import AccountMenuComponent from '../account-menu.component';
 import AppBarComponent from '../app-bar.component';
 
@@ -10,9 +10,9 @@ import AppBarComponent from '../app-bar.component';
  */
 test('renders account menu', () => {
   render(
-    <TestComponentWrapper>
+    <TestComponentRenderer>
       <AccountMenuComponent />
-    </TestComponentWrapper>
+    </TestComponentRenderer>
   );
 
   const userAccountMenu = screen.getByTestId('user-account-menu');
@@ -24,9 +24,9 @@ test('renders account menu', () => {
  */
 test('renders app bar', () => {
   render(
-    <TestComponentWrapper>
+    <TestComponentRenderer>
       <AppBarComponent handleDrawerToggle={() => {}} mobileDrawerOpen={false} />
-    </TestComponentWrapper>
+    </TestComponentRenderer>
   );
 
   const appBarElement = screen.getByTestId('app-bar');
@@ -38,9 +38,9 @@ test('renders app bar', () => {
  */
 test('renders company logo', () => {
   render(
-    <TestComponentWrapper>
+    <TestComponentRenderer>
       <AppBarComponent handleDrawerToggle={() => {}} mobileDrawerOpen={false} />
-    </TestComponentWrapper>
+    </TestComponentRenderer>
   );
 
   const companyLogo = screen.getByTestId('company-logo');
@@ -52,9 +52,9 @@ test('renders company logo', () => {
  */
 test('renders clanguage option', () => {
   render(
-    <TestComponentWrapper>
+    <TestComponentRenderer>
       <AppBarComponent handleDrawerToggle={() => {}} mobileDrawerOpen={false} />
-    </TestComponentWrapper>
+    </TestComponentRenderer>
   );
 
   const languageOption = screen.getByTestId('language-option');

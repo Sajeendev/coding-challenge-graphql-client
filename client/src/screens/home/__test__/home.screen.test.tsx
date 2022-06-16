@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import TestComponentWrapper from '../../../__test__/test-component-renderer';
+import TestComponentRenderer from '../../../__test__/test-component-renderer';
 import HomeScreen from '../home.screen';
 
 /**
@@ -9,9 +9,9 @@ import HomeScreen from '../home.screen';
  */
 test('renders hottest deal card', () => {
   render(
-    <TestComponentWrapper>
+    <TestComponentRenderer>
       <HomeScreen />
-    </TestComponentWrapper>
+    </TestComponentRenderer>
   );
 
   const hottestDeal1 = screen.getByTestId('hottest-deal-1');
