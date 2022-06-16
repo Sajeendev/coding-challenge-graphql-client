@@ -33,6 +33,10 @@ const ResultItemComponent = ({ data }: PropTypes) => {
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Box>
                 <Typography>
+                  {data?.departureDate?.dayOfMonth}/
+                  {data?.departureDate?.month + 1}/{data?.departureDate?.year}
+                </Typography>
+                <Typography>
                   {data?.departureDate.hourOfDay}:{data?.departureDate.minute}
                 </Typography>
                 <FlightTakeoff color="secondary" />
@@ -40,6 +44,10 @@ const ResultItemComponent = ({ data }: PropTypes) => {
               </Box>
               <Flight sx={{ color: 'text.secondary' }} />
               <Box>
+                <Typography>
+                  {data?.arrivalDate?.dayOfMonth}/{data?.arrivalDate?.month + 1}
+                  /{data?.arrivalDate?.year}
+                </Typography>
                 <Typography>
                   {data?.arrivalDate.hourOfDay}:{data?.arrivalDate.minute}
                 </Typography>

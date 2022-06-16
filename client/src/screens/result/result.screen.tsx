@@ -82,6 +82,7 @@ const ResultScreen = () => {
                 )
               : data
           )
+          .sort((a, b) => a.price - b.price)
           ?.map((data, i) => <ResultItemComponent data={data} key={i} />)
       )}
     </Box>
