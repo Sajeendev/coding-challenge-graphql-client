@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import { getItinerariesAction } from '../../state/flight-search/get-itineraries.slice';
 import { searchParamsAction } from '../../state/flight-search/search-params.slice';
-import { useAppDispatch } from '../../state/store';
+import { useAppDispatch, useAppSelector } from '../../state/store';
 import { RectangularSkeletonComponent } from '../skeletons/skeleton.component';
 import LocationDropDownListComponant from './location-drop-down-list-componant';
 
@@ -32,12 +32,18 @@ const SearchBoxComponent = ({
   const dispatch = useAppDispatch();
 
   /**
+   * Global state
+   */
+  const searchParamsState = useAppSelector(state => state.searchParamsState);
+  const { params: searchParams } = searchParamsState;
+
+  /**
    * Local state
    */
   const [params, setParams] = useState({
-    departureLocation: '',
-    departureDate: null,
-    arrivalLocation: '',
+    departureLocation: searchParams.departureLocation,
+    departureDate: searchParams.departureDate,
+    arrivalLocation: searchParams.arrivalLocation,
   });
 
   /**
@@ -91,7 +97,7 @@ const SearchBoxComponent = ({
       <Grid item xs={12} sm={4} md={3}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DatePicker
-            disablePast
+            // disablePast
             label="Departure date"
             inputFormat={'dd/MM/yyyy'}
             value={params.departureDate}
