@@ -18,3 +18,11 @@ $ npm run sever
 # start client
 $ npm run client
 ```
+
+## Testing the app
+
+```bash
+# Testing client
+$ cd client
+$ npm run test
+```

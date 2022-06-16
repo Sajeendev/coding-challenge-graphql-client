@@ -46,7 +46,8 @@ const AccountMenuComponent = () => {
         size="small"
         aria-controls={open ? 'account-menu' : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}>
+        aria-expanded={open ? 'true' : undefined}
+        data-testid="user-account-menu">
         <Avatar alt="Account" src="" sx={{ width: 24, height: 24 }} />
       </IconButton>
 

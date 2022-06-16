@@ -7,6 +7,15 @@ import { globalProps } from '../../styles/global.props';
 import { useHomeStyles } from './home.style';
 import HottestDealCardComponent from './hottest-deal-card.component';
 
+const hottestDeals = [
+  { name: 'Deal 1' },
+  { name: 'Deal 2' },
+  { name: 'Deal 3' },
+  { name: 'Deal 4' },
+  { name: 'Deal 5' },
+  { name: 'Deal 6' },
+];
+
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
   const styles = useHomeStyles();
@@ -66,30 +75,14 @@ const HomeScreen = () => {
           gap={4}
           justifyContent="center"
           sx={{ margin: '50px 0', padding: '10px' }}>
-          <HottestDealCardComponent
-            title="Deal 1"
-            imageUrl="https://source.unsplash.com/random"
-          />
-          <HottestDealCardComponent
-            title="Deal 2"
-            imageUrl="https://source.unsplash.com/random"
-          />
-          <HottestDealCardComponent
-            title="Deal 3"
-            imageUrl="https://source.unsplash.com/random"
-          />
-          <HottestDealCardComponent
-            title="Deal 4"
-            imageUrl="https://source.unsplash.com/random"
-          />
-          <HottestDealCardComponent
-            title="Deal 5"
-            imageUrl="https://source.unsplash.com/random"
-          />
-          <HottestDealCardComponent
-            title="Deal 6"
-            imageUrl="https://source.unsplash.com/random"
-          />
+          {hottestDeals.map((deal, i) => (
+            <HottestDealCardComponent
+              key={i}
+              title={deal.name}
+              imageUrl="https://source.unsplash.com/random"
+              testId={`hottest-deal-${i}`}
+            />
+          ))}
         </Box>
       </Box>
     </Box>

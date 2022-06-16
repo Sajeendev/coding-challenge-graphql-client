@@ -21,7 +21,10 @@ const LocationDropDownListComponant = ({
   handleChange,
 }: PropTypes) => {
   return (
-    <FormControl size="small" fullWidth>
+    <FormControl
+      size="small"
+      fullWidth
+      data-testid={`search-dropdown-${label.toLocaleLowerCase()}`}>
       <InputLabel id={`id-${label}`}>{label}</InputLabel>
       <Select
         labelId={`id-${label}`}

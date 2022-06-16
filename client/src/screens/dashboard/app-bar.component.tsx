@@ -31,6 +31,7 @@ const AppBarComponent = ({
 
   return (
     <AppBar
+      data-testid="app-bar"
       component="nav"
       position="fixed"
       sx={{ zIndex: theme.zIndex.drawer + 1 }}>
@@ -49,6 +50,7 @@ const AppBarComponent = ({
           alt="Logo"
           className={styles.appBarLogo}
           onClick={() => navigate(AppUrlEnum.Home)}
+          data-testid="company-logo"
         />
 
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -67,7 +69,7 @@ const AppBarComponent = ({
             gap: 1,
           }}>
           <AccountMenuComponent />
-          <Typography>EN</Typography>
+          <Typography data-testid="language-option">EN</Typography>
         </Box>
       </Toolbar>
     </AppBar>

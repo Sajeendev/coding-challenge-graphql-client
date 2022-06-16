@@ -5,7 +5,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { DesktopDatePicker } from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import React, { useCallback, useState } from 'react';
@@ -90,14 +90,19 @@ const SearchBoxComponent = ({
       </Grid>
       <Grid item xs={12} sm={4} md={3}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DesktopDatePicker
+          <DatePicker
             disablePast
             label="Departure date"
             inputFormat={'dd/MM/yyyy'}
             value={params.departureDate}
             onChange={handleChangeDepartureDate}
             renderInput={params => (
-              <TextField {...params} size="small" fullWidth />
+              <TextField
+                {...params}
+                size="small"
+                fullWidth
+                data-testid="search-date-picker-departure"
+              />
             )}
           />
         </LocalizationProvider>

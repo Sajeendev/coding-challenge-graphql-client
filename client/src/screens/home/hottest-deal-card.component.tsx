@@ -10,11 +10,12 @@ import React from 'react';
 interface PropTypes {
   title: string;
   imageUrl: string;
+  testId: string;
 }
 
-const HottestDealCardComponent = ({ title, imageUrl }: PropTypes) => {
+const HottestDealCardComponent = ({ title, imageUrl, testId }: PropTypes) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} data-testid={testId}>
       <CardActionArea>
         <CardMedia component="img" height="120" image={imageUrl} alt={title} />
         <CardContent>
