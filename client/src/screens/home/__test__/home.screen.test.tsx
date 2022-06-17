@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
-import TestComponentRenderer from '../../../__test__/test-component-renderer';
+import TestComponentRenderer from '../../../test/test-component-renderer';
 import HomeScreen from '../home.screen';
 
 /**
