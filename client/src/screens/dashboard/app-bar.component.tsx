@@ -2,12 +2,13 @@ import { Menu, MenuOpen } from '@mui/icons-material';
 import {
   AppBar,
   Box,
+  Button,
   IconButton,
   Toolbar,
   Typography,
   useTheme,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MenuEnum } from '../../constants/menu.enum';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import AccountMenuComponent from './account-menu.component';
@@ -70,6 +71,13 @@ const AppBarComponent = ({
             alignItems: 'center',
             gap: 1,
           }}>
+          <Button
+            component={Link}
+            to={AppUrlEnum.Signin}
+            color="inherit"
+            sx={{ textTransform: 'none' }}>
+            SignIn
+          </Button>
           <AccountMenuComponent />
           <Typography data-testid="language-option">EN</Typography>
         </Box>

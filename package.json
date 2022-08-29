@@ -12,12 +12,9 @@
   "author": "Sajeenthan",
   "license": "ISC",
   "dependencies": {
-    "@mui/lab": "^5.0.0-alpha.86",
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "formik": "^2.2.9",
-    "morgan": "^1.10.0",
-    "yup": "^0.32.11"
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "concurrently": "^7.2.1",
