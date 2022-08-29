@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 import { MenuEnum } from '../../constants/menu.enum';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import AccountMenuComponent from './account-menu.component';
-import { useDashboardStyles } from './dashboard.style';
 import MoreMenuListComponent from './drop-down-menu-list.component';
 import MenuButtonComponent from './menu-button.component';
 
@@ -26,7 +25,6 @@ const AppBarComponent = ({
 }: PropTypes) => {
   const theme = useTheme();
   const navigate = useNavigate();
-  const styles = useDashboardStyles();
 
   return (
     <AppBar
@@ -47,7 +45,12 @@ const AppBarComponent = ({
         <img
           src="/assets/logos/logo-edreams.jpeg"
           alt="Logo"
-          className={styles.appBarLogo}
+          style={{
+            maxHeight: '60px',
+            maxWidth: '120px',
+            marginRight: '10px',
+            cursor: 'pointer',
+          }}
           onClick={() => navigate(AppUrlEnum.Home)}
           data-testid="company-logo"
         />

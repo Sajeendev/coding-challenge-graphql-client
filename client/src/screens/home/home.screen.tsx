@@ -4,7 +4,6 @@ import SearchBoxComponent from '../../components/search-box/search-box-component
 import { getLocationsAction } from '../../state/flight-search/get-locations.slice';
 import { useAppDispatch, useAppSelector } from '../../state/store';
 import { globalProps } from '../../styles/global.props';
-import { useHomeStyles } from './home.style';
 import HottestDealCardComponent from './hottest-deal-card.component';
 
 const hottestDeals = [
@@ -18,7 +17,6 @@ const hottestDeals = [
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
-  const styles = useHomeStyles();
 
   /**
    * Global state
@@ -38,7 +36,14 @@ const HomeScreen = () => {
   return (
     <Box>
       {/* Header section */}
-      <Box className={styles.headerContainer}>
+      <Box
+        sx={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/home/home-header.jpeg')`,
+          height: '500px',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}>
         <Box sx={{ ...globalProps.box1200 }}>
           <Paper
             variant="outlined"
