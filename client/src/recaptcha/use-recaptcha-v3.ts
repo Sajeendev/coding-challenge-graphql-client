@@ -1,20 +1,22 @@
+declare const window: any;
+
 export const useRecaptchaV3 = () => {
-  const recaptchaSitekey = process.env.REACT_APP_SITE_KEY_V3;
+  const recaptchaSitekey = '6LegpuYgAAAAAO0XlFYOB2uX0gtfUarMdHbgt_3M';
 
   const recaptchaReady = () =>
-    new Promise((resolve) => {
+    new Promise(resolve => {
       window.grecaptcha.ready(resolve);
     });
 
   const loadRecaptchaScript = () => {
-    const recaptchaId = "recaptcha-key";
+    const recaptchaId = 'recaptcha-key-v3';
     const url = `https://www.google.com/recaptcha/api.js?render=${recaptchaSitekey}&trustedtypes=true`;
 
     const existingRecaptchScript = document.getElementById(recaptchaId);
 
     if (!existingRecaptchScript) {
-      const recaptchaScript = document.createElement("script");
-      recaptchaScript.type = "text/javascript";
+      const recaptchaScript = document.createElement('script');
+      recaptchaScript.type = 'text/javascript';
       recaptchaScript.src = url;
       recaptchaScript.id = recaptchaId;
 
@@ -25,7 +27,7 @@ export const useRecaptchaV3 = () => {
   const generateRecaptchaToken = () =>
     new Promise((resolve, reject) => {
       recaptchaReady().then(() => {
-        window.grecaptcha.execute(recaptchaSitekey).then((token) => {
+        window.grecaptcha.execute(recaptchaSitekey).then((token: string) => {
           if (token) resolve(token);
           else reject();
         });

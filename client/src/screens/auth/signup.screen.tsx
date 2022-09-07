@@ -8,14 +8,13 @@ import FormikCheckBoxComponent from '../../components/formik/formik-check-box.co
 import FormikPasswordFieldComponent from '../../components/formik/formik-password-field.component';
 import FormikTextFieldComponent from '../../components/formik/formik-text-field.component';
 import { envs } from '../../config/env-variables';
-import { useRecaptchaEnetrprise } from '../../recaptcha/use-recaptcha-enterprise';
+import { useRecaptchaV3 } from '../../recaptcha/use-recaptcha-v3';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import { globalProps } from '../../styles/global.props';
 
 const SignupScreen = () => {
   const { box1200 } = globalProps;
-  const { loadRecaptchaScript, generateRecaptchaToken } =
-    useRecaptchaEnetrprise();
+  const { loadRecaptchaScript, generateRecaptchaToken } = useRecaptchaV3();
   /**
    * Local states
    */

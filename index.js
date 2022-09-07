@@ -27,9 +27,7 @@ router.get('/locations', (req, res) => res.send(locations));
  */
 router.post('/recaptcha', async (req, res) => {
   const { token } = req.body;
-  const secretKey =
-    process.env.RECAPTCHA_ENTERPRISE_SECRET_KEY ||
-    '6LeFG90hAAAAAI4mKnvB-VvgHJpxnTqBsuw2x9PD';
+  const secretKey = '6LegpuYgAAAAAKvQDayRiga99ltIS2YiNaKl5yhz';
 
   try {
     const response = await axios.post(
