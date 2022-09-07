@@ -17,6 +17,7 @@ const hottestDeals = [
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
+  const { box1200, paperContainer } = globalProps;
 
   /**
    * Global state
@@ -44,12 +45,20 @@ const HomeScreen = () => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
         }}>
-        <Box sx={{ ...globalProps.box1200 }}>
+        <Box
+          sx={{
+            ...box1200,
+            height: '450px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
           <Paper
             variant="outlined"
             elevation={0}
             sx={{
-              ...globalProps.paperContainer,
+              ...paperContainer,
+              width: '100%',
             }}>
             <SearchBoxComponent
               locations={data}
@@ -61,7 +70,7 @@ const HomeScreen = () => {
       </Box>
 
       {/* Hottest deals sections */}
-      <Box sx={{ ...globalProps.box1200, padding: '50px 0' }}>
+      <Box sx={{ ...box1200, padding: '50px 0' }}>
         <Stack direction="row" spacing={2}>
           <img
             src="/assets/images/home/fire.png"

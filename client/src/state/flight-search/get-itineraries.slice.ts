@@ -70,7 +70,7 @@ export const getItinerariesAction =
     try {
       dispatch(getItinerariesRequest());
 
-      const response = await axios.get(`${envs.serverUrl}/itineraries`);
+      const response = await axios.get(`${envs.serverUrl}/api/itineraries`);
       if (response?.data) {
         dispatch(getItinerariesSuccess(response.data));
       }

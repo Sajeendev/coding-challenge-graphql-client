@@ -71,12 +71,8 @@ const AppBarComponent = ({
             alignItems: 'center',
             gap: 1,
           }}>
-          <Button
-            component={Link}
-            to={AppUrlEnum.Signin}
-            color="inherit"
-            sx={{ textTransform: 'none' }}>
-            SignIn
+          <Button component={Link} to={AppUrlEnum.Signin} color="inherit">
+            <Typography sx={{ textTransform: 'none' }}>SignIn</Typography>
           </Button>
           <AccountMenuComponent />
           <Typography data-testid="language-option">EN</Typography>

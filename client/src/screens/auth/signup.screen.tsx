@@ -1,21 +1,33 @@
 import { LoadingButton } from '@mui/lab';
 import { Box, Paper, Stack, Typography } from '@mui/material';
+import axios from 'axios';
 import { Formik } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LinkComponent from '../../components/custom/link.component';
 import FormikCheckBoxComponent from '../../components/formik/formik-check-box.component';
 import FormikPasswordFieldComponent from '../../components/formik/formik-password-field.component';
 import FormikTextFieldComponent from '../../components/formik/formik-text-field.component';
+import { envs } from '../../config/env-variables';
+import { useRecaptchaEnetrprise } from '../../recaptcha/use-recaptcha-enterprise';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import { globalProps } from '../../styles/global.props';
-import { signupValidationSchema } from '../../validations/auth/auth-validation';
 
 const SignupScreen = () => {
   const { box1200 } = globalProps;
+  const { loadRecaptchaScript, generateRecaptchaToken } =
+    useRecaptchaEnetrprise();
   /**
    * Local states
    */
   const [loading, setLoading] = useState(false);
+
+  /**
+   * Effects
+   */
+  useEffect(() => {
+    loadRecaptchaScript();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   /**
    * Handlers
@@ -27,6 +39,15 @@ const SignupScreen = () => {
   ) => {
     setLoading(true);
     try {
+      const token = await generateRecaptchaToken();
+      if (token) {
+        const response = await axios.post(`${envs.serverUrl}/api/recaptcha`, {
+          token,
+        });
+        if (response?.data) {
+          console.log(response?.data);
+        }
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -44,7 +65,7 @@ const SignupScreen = () => {
         password: '',
         acceptTerms: false,
       }}
-      validationSchema={signupValidationSchema}
+      // validationSchema={signupValidationSchema}
       onSubmit={async (values, { resetForm }) => {
         const { email, password } = values;
         return await handleSignup(email, password, resetForm);
