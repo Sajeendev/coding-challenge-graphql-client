@@ -8,7 +8,7 @@ export const useRecaptchaV3 = () => {
       window.grecaptcha.ready(resolve);
     });
 
-  const loadRecaptchaScript = () => {
+  const loadRecaptchaScriptV3 = () => {
     const recaptchaId = 'recaptcha-key-v3';
     const url = `https://www.google.com/recaptcha/api.js?render=${recaptchaSitekey}&trustedtypes=true`;
 
@@ -19,6 +19,7 @@ export const useRecaptchaV3 = () => {
       recaptchaScript.type = 'text/javascript';
       recaptchaScript.src = url;
       recaptchaScript.id = recaptchaId;
+      recaptchaScript.async = true;
 
       document.body.appendChild(recaptchaScript);
     }
@@ -35,7 +36,7 @@ export const useRecaptchaV3 = () => {
     });
 
   return {
-    loadRecaptchaScript,
+    loadRecaptchaScriptV3,
     generateRecaptchaToken,
   };
 };

@@ -8,13 +8,15 @@ import FormikCheckBoxComponent from '../../components/formik/formik-check-box.co
 import FormikPasswordFieldComponent from '../../components/formik/formik-password-field.component';
 import FormikTextFieldComponent from '../../components/formik/formik-text-field.component';
 import { envs } from '../../config/env-variables';
+import { useRecaptchaV2 } from '../../recaptcha/use-recaptcha-v2';
 import { useRecaptchaV3 } from '../../recaptcha/use-recaptcha-v3';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import { globalProps } from '../../styles/global.props';
 
 const SignupScreen = () => {
   const { box1200 } = globalProps;
-  const { loadRecaptchaScript, generateRecaptchaToken } = useRecaptchaV3();
+  const { loadRecaptchaScriptV3, generateRecaptchaToken } = useRecaptchaV3();
+  const { loadRecaptchaScriptV2 } = useRecaptchaV2();
   /**
    * Local states
    */
@@ -24,7 +26,9 @@ const SignupScreen = () => {
    * Effects
    */
   useEffect(() => {
-    loadRecaptchaScript();
+    loadRecaptchaScriptV3();
+    loadRecaptchaScriptV2();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -38,6 +42,7 @@ const SignupScreen = () => {
   ) => {
     setLoading(true);
     try {
+      // await (window as any).grecaptcha.execute();
       const token = await generateRecaptchaToken();
       if (token) {
         const response = await axios.post(`${envs.serverUrl}/api/recaptcha`, {
@@ -97,6 +102,13 @@ const SignupScreen = () => {
               fullWidth>
               Create account
             </LoadingButton>
+
+            <Box
+              className="g-recaptcha"
+              data-sitekey="6LeuWNkhAAAAAEVEBYB1tXFCLoTj_3Hg_yXNuyF-"
+              // data-size="invisible"
+              data-theme="light"
+              data-callback="handleRecaptchaSubmit"></Box>
           </Stack>
         </form>
       )}
