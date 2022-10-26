@@ -9,3 +9,12 @@ export const isEqualDates = (date: string, dataParam: Date) => {
     format(new Date(date), 'dd/MM/yyyy')
   );
 };
+
+export const formatDateShort = (date: Date | string) => {
+  // 08 Nov 2021
+  if (date) {
+    return format(new Date(date), 'dd MMM yyyy');
+  }
+
+  return '';
+};
