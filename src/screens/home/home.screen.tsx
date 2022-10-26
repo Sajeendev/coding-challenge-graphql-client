@@ -1,8 +1,6 @@
 import { Box, Paper, Stack, Typography } from '@mui/material';
-import { useEffect } from 'react';
 import SearchBoxComponent from '../../components/search-box/search-box-component';
-import { getLocationsAction } from '../../state/flight-search/get-locations.slice';
-import { useAppDispatch, useAppSelector } from '../../state/store';
+import { useLocationQuery } from '../../queries/locations.queries';
 import { globalProps } from '../../styles/global.props';
 import HottestDealCardComponent from './hottest-deal-card.component';
 
@@ -16,23 +14,17 @@ const hottestDeals = [
 ];
 
 const HomeScreen = () => {
-  const dispatch = useAppDispatch();
   const { box1200, paperContainer } = globalProps;
 
-  /**
-   * Global state
-   */
-  const getLocationsState = useAppSelector(state => state.getLocationsState);
-  const { loading, success, data } = getLocationsState;
+  const { data, error, loading } = useLocationQuery();
 
-  /**
-   * Effects
-   */
-  useEffect(() => {
-    // Avoid calling api for every pageload to optimize performance
-    !success && dispatch(getLocationsAction());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [success]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>An error occurred</div>;
+  }
 
   return (
     <Box>
@@ -64,7 +56,7 @@ const HomeScreen = () => {
             }}
           >
             <SearchBoxComponent
-              locations={data}
+              locations={data?.locations}
               isLoading={loading}
               isHomeScreen={true}
             />

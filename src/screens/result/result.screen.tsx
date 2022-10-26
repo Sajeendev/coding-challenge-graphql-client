@@ -1,24 +1,14 @@
 import { Box, Paper } from '@mui/material';
-import { useEffect } from 'react';
 import SearchBoxComponent from '../../components/search-box/search-box-component';
 import { RectangularSkeletonComponent } from '../../components/skeletons/skeleton.component';
-import { getLocationsAction } from '../../state/flight-search/get-locations.slice';
-import { useAppDispatch, useAppSelector } from '../../state/store';
+import { useLocationQuery } from '../../queries/locations.queries';
+import { useAppSelector } from '../../state/store';
 import { globalProps } from '../../styles/global.props';
 import { isEqualDates } from '../../utils/date.utils';
 import ResultItemComponent from './result-item.component';
 
 const ResultScreen = () => {
-  const dispatch = useAppDispatch();
-  /**
-   * Global state
-   */
-  const getLocationsState = useAppSelector(state => state.getLocationsState);
-  const {
-    loading: locationLoading,
-    success: locationSuccess,
-    data: locationData,
-  } = getLocationsState;
+  const { data, error, loading } = useLocationQuery();
 
   const getItinerariesState = useAppSelector(
     state => state.getItinerariesState
@@ -32,15 +22,13 @@ const ResultScreen = () => {
   const searchParamsState = useAppSelector(state => state.searchParamsState);
   const { params } = searchParamsState;
 
-  /**
-   * Effects
-   */
-  useEffect(() => {
-    // Avoid calling api for every pageload to optimize performance
-    !locationSuccess && dispatch(getLocationsAction());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [locationSuccess]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
+  if (error) {
+    return <div>An error occurred</div>;
+  }
   return (
     <Box sx={{ ...globalProps.box1200 }}>
       <Paper
@@ -52,8 +40,8 @@ const ResultScreen = () => {
         }}
       >
         <SearchBoxComponent
-          locations={locationData}
-          isLoading={locationLoading}
+          locations={data}
+          isLoading={loading}
           isHomeScreen={false}
         />
       </Paper>

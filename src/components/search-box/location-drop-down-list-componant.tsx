@@ -5,12 +5,12 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-import { LocationDataInterface } from '../../state/flight-search/get-locations.slice';
+import { LocationInterface } from '../../queries/locations.queries';
 
 interface PropTypes {
   label: string;
   value: string;
-  locations: LocationDataInterface[];
+  locations: LocationInterface[];
   handleChange: (event: SelectChangeEvent) => void;
 }
 
