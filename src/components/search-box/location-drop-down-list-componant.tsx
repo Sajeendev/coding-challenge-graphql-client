@@ -5,7 +5,7 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-import { LocationInterface } from '../../queries/locations.queries';
+import { LocationInterface } from '../../queries/location.queries';
 
 interface PropTypes {
   label: string;

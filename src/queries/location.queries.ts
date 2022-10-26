@@ -10,7 +10,7 @@ interface LocationDataInterface {
 }
 
 const GET_LOCATIONS = gql`
-  query getClients {
+  query getLocations {
     locations {
       id
       name
@@ -18,6 +18,6 @@ const GET_LOCATIONS = gql`
   }
 `;
 
-export function useLocationQuery() {
+export const useLocationsQuery = () => {
   return useQuery<LocationDataInterface>(GET_LOCATIONS);
-}
+};

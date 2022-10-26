@@ -27,6 +27,6 @@ const GET_ITINERARIES = gql`
   }
 `;
 
-export function useItineraryQuery() {
+export const useItinerariesQuery = () => {
   return useQuery<ItineraryDataInterface>(GET_ITINERARIES);
-}
+};

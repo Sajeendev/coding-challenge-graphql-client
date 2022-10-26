@@ -1,6 +1,6 @@
 import { Box, Paper, Stack, Typography } from '@mui/material';
 import SearchBoxComponent from '../../components/search-box/search-box-component';
-import { useLocationQuery } from '../../queries/locations.queries';
+import { useLocationsQuery } from '../../queries/location.queries';
 import { globalProps } from '../../styles/global.props';
 import HottestDealCardComponent from './hottest-deal-card.component';
 
@@ -16,7 +16,7 @@ const hottestDeals = [
 const HomeScreen = () => {
   const { box1200, paperContainer } = globalProps;
 
-  const { data, error, loading } = useLocationQuery();
+  const { data, error, loading } = useLocationsQuery();
 
   if (loading) {
     return <div>Loading...</div>;

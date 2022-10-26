@@ -1,8 +1,8 @@
 import { Box, Paper } from '@mui/material';
 import SearchBoxComponent from '../../components/search-box/search-box-component';
 import { RectangularSkeletonComponent } from '../../components/skeletons/skeleton.component';
-import { useItineraryQuery } from '../../queries/itinerary.queries';
-import { useLocationQuery } from '../../queries/locations.queries';
+import { useItinerariesQuery } from '../../queries/itinerary.queries';
+import { useLocationsQuery } from '../../queries/location.queries';
 import { useAppSelector } from '../../state/store';
 import { globalProps } from '../../styles/global.props';
 import { isEqualDates } from '../../utils/date.utils';
@@ -13,13 +13,13 @@ const ResultScreen = () => {
     data: locationsData,
     error: locationsError,
     loading: locationsLoading,
-  } = useLocationQuery();
+  } = useLocationsQuery();
 
   const {
     data: itinerariesData,
     error: itinerariesError,
     loading: itinerariesLoading,
-  } = useItineraryQuery();
+  } = useItinerariesQuery();
 
   const searchParamsState = useAppSelector(state => state.searchParamsState);
   const { params } = searchParamsState;

@@ -8,9 +8,8 @@ import {
 import { DatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLocationQuery } from '../../queries/locations.queries';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import { searchParamsAction } from '../../state/flight-search/search-params.slice';
 import { useAppDispatch, useAppSelector } from '../../state/store';
@@ -30,14 +29,6 @@ const SearchBoxComponent = ({
 }: PropTypes) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
-  const { refetch } = useLocationQuery();
-
-  useEffect(() => {
-    if (!locations?.length) {
-      refetch();
-    }
-  }, [locations?.length, refetch]);
 
   /**
    * Global state
