@@ -49,7 +49,8 @@ const ResultScreen = () => {
         sx={{
           ...globalProps.paperContainer,
           marginBottom: '20px',
-        }}>
+        }}
+      >
         <SearchBoxComponent
           locations={locationData}
           isLoading={locationLoading}
@@ -74,12 +75,7 @@ const ResultScreen = () => {
           )
           ?.filter(data =>
             params.departureDate
-              ? isEqualDates(
-                  data?.departureDate?.year,
-                  data?.departureDate?.month,
-                  data?.departureDate?.dayOfMonth,
-                  params.departureDate
-                )
+              ? isEqualDates(data?.departureDate, params.departureDate)
               : data
           )
           .sort((a, b) => a.price - b.price)

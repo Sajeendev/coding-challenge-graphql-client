@@ -12,13 +12,14 @@ import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppUrlEnum } from '../../routes/app-url.enum';
 import { getItinerariesAction } from '../../state/flight-search/get-itineraries.slice';
+import { LocationDataInterface } from '../../state/flight-search/get-locations.slice';
 import { searchParamsAction } from '../../state/flight-search/search-params.slice';
 import { useAppDispatch, useAppSelector } from '../../state/store';
 import { RectangularSkeletonComponent } from '../skeletons/skeleton.component';
 import LocationDropDownListComponant from './location-drop-down-list-componant';
 
 interface PropTypes {
-  locations: string[];
+  locations: LocationDataInterface[];
   isLoading: boolean;
   isHomeScreen: boolean;
 }
@@ -119,7 +120,8 @@ const SearchBoxComponent = ({
           fullWidth
           variant="contained"
           onClick={handleSearch}
-          disabled={isLoading}>
+          disabled={isLoading}
+        >
           <Typography sx={{ textTransform: 'none' }}>
             {isLoading
               ? 'Loading...'

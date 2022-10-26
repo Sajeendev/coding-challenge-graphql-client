@@ -7,18 +7,10 @@ import { AppThunk } from '../store';
 /**
  * Data
  */
-export interface DateResponseInterface {
-  year: number;
-  month: number;
-  dayOfMonth: number;
-  hourOfDay: number;
-  minute: number;
-  second: number;
-}
 
 export interface ItineraryDataInterface {
-  arrivalDate: DateResponseInterface;
-  departureDate: DateResponseInterface;
+  arrivalDate: string;
+  departureDate: string;
   arrivalLocation: string;
   departureLocation: string;
   carrier: string;
@@ -70,7 +62,7 @@ export const getItinerariesAction =
     try {
       dispatch(getItinerariesRequest());
 
-      const response = await axios.get(`${envs.serverUrl}/api/itineraries`);
+      const response = await axios.get(`${envs.serverUrl}/api/itinerary`);
       if (response?.data) {
         dispatch(getItinerariesSuccess(response.data));
       }

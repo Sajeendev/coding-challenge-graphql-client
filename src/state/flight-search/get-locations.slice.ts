@@ -4,12 +4,17 @@ import { envs } from '../../config/env-variables';
 import { getErrorMessageFromRequest } from '../../utils/error.util';
 import { AppThunk } from '../store';
 
+export interface LocationDataInterface {
+  id: number;
+  name: string;
+}
+
 /**
  * Initial state
  */
 const initialLocationsState = {
   loading: false,
-  data: [],
+  data: [] as LocationDataInterface[],
   error: '',
   success: false,
 };
@@ -34,7 +39,7 @@ export const getLocationsSlice = createSlice({
       state.loading = false;
       state.success = false;
       state.error = action.payload;
-      state.data = [];
+      state.data = [] as LocationDataInterface[];
     },
   },
 });
@@ -49,7 +54,7 @@ export const getLocationsAction =
     try {
       dispatch(getLocationsRequest());
 
-      const response = await axios.get(`${envs.serverUrl}/api/locations`);
+      const response = await axios.get(`${envs.serverUrl}/api/location`);
       if (response?.data) {
         dispatch(getLocationsSuccess(response.data));
       }

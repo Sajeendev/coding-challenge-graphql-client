@@ -44,7 +44,8 @@ const HomeScreen = () => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-        }}>
+        }}
+      >
         <Box
           sx={{
             ...box1200,
@@ -52,14 +53,16 @@ const HomeScreen = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Paper
             variant="outlined"
             elevation={0}
             sx={{
               ...paperContainer,
               width: '100%',
-            }}>
+            }}
+          >
             <SearchBoxComponent
               locations={data}
               isLoading={loading}
@@ -88,7 +91,8 @@ const HomeScreen = () => {
           gridTemplateColumns="repeat(auto-fit, minmax(300px, 350px))"
           gap={4}
           justifyContent="center"
-          sx={{ margin: '50px 0', padding: '10px' }}>
+          sx={{ margin: '50px 0', padding: '10px' }}
+        >
           {hottestDeals.map((deal, i) => (
             <HottestDealCardComponent
               key={i}

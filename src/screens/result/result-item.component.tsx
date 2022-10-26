@@ -12,7 +12,8 @@ const ResultItemComponent = ({ data }: PropTypes) => {
     <Paper
       elevation={0}
       variant="outlined"
-      sx={{ ...globalProps.paperContainer, margin: '40px 0' }}>
+      sx={{ ...globalProps.paperContainer, margin: '40px 0' }}
+    >
       <Grid container spacing={5}>
         <Grid item xs={12} sm={8}>
           <Stack spacing={3}>
@@ -22,7 +23,8 @@ const ResultItemComponent = ({ data }: PropTypes) => {
                   textTransform: 'uppercase',
                   fontWeight: 500,
                   fontSize: '14px',
-                }}>
+                }}
+              >
                 Departure
               </Typography>
               <Circle sx={{ color: 'text.secondary', height: 10 }} />
@@ -31,25 +33,19 @@ const ResultItemComponent = ({ data }: PropTypes) => {
 
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Box>
+                <Typography>{data?.departureDate}</Typography>
                 <Typography>
-                  {data?.departureDate?.dayOfMonth}/
-                  {data?.departureDate?.month + 1}/{data?.departureDate?.year}
-                </Typography>
-                <Typography>
-                  {data?.departureDate.hourOfDay}:{data?.departureDate.minute}
+                  {/* {data?.departureDate.hourOfDay}:{data?.departureDate.minute} */}
                 </Typography>
                 <FlightTakeoff color="secondary" />
                 <Typography> {data?.departureLocation}</Typography>
               </Box>
               <Flight sx={{ color: 'text.secondary' }} />
               <Box>
-                <Typography>
-                  {data?.arrivalDate?.dayOfMonth}/{data?.arrivalDate?.month + 1}
-                  /{data?.arrivalDate?.year}
-                </Typography>
-                <Typography>
+                <Typography>{data?.arrivalDate}</Typography>
+                {/* <Typography>
                   {data?.arrivalDate.hourOfDay}:{data?.arrivalDate.minute}
-                </Typography>
+                </Typography> */}
                 <FlightLand color="secondary" />
                 <Typography> {data?.arrivalLocation}</Typography>
               </Box>
@@ -66,7 +62,8 @@ const ResultItemComponent = ({ data }: PropTypes) => {
               alignItems: 'center',
               gap: '20px',
               height: '100%',
-            }}>
+            }}
+          >
             <Typography variant="h5" sx={{ fontWeight: 600 }}>
               $ {data?.price}
             </Typography>
@@ -74,7 +71,8 @@ const ResultItemComponent = ({ data }: PropTypes) => {
               color="primary"
               variant="extended"
               sx={{ width: '100%', maxWidth: '250px' }}
-              size="medium">
+              size="medium"
+            >
               Select
             </Fab>
           </Box>
