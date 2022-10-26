@@ -1,0 +1,27 @@
+"filename", "language", "TypeScript React", "TypeScript", "comment", "blank", "total"
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/App.test.tsx", "TypeScript React", 8, 0, 0, 2, 10
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/App.tsx", "TypeScript React", 11, 0, 0, 3, 14
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/config/env-variables.ts", "TypeScript", 0, 3, 4, 1, 8
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/constants/menu.enum.ts", "TypeScript", 0, 10, 0, 1, 11
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/index.tsx", "TypeScript React", 30, 0, 0, 3, 33
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/react-app-env.d.ts", "TypeScript", 0, 0, 1, 1, 2
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/routes/app-url.enum.ts", "TypeScript", 0, 4, 0, 1, 5
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/routes/app.routes.tsx", "TypeScript React", 15, 0, 0, 4, 19
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/account-menu.component.tsx", "TypeScript React", 111, 0, 6, 14, 131
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/app-bar.component.tsx", "TypeScript React", 63, 0, 0, 7, 70
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/dashboard.screen.tsx", "TypeScript React", 29, 0, 6, 5, 40
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/drawer.component.tsx", "TypeScript React", 39, 0, 0, 4, 43
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/drop-down-menu-list.component.tsx", "TypeScript React", 70, 0, 6, 6, 82
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/menu-button.component.tsx", "TypeScript React", 12, 0, 0, 4, 16
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/menu-list-item.component.tsx", "TypeScript React", 23, 0, 0, 4, 27
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/error/not-found.screen.tsx", "TypeScript React", 4, 0, 0, 2, 6
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/home/home.screen.tsx", "TypeScript React", 13, 0, 8, 6, 27
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/search/search.screen.tsx", "TypeScript React", 4, 0, 0, 2, 6
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/setupTests.ts", "TypeScript", 0, 1, 4, 1, 6
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/state/flight-search/get-locations.slice.ts", "TypeScript", 0, 47, 9, 5, 61
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/state/interfaces/default.state.interface.ts", "TypeScript", 0, 5, 0, 1, 6
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/state/root.reducer.ts", "TypeScript", 0, 6, 0, 3, 9
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/state/store.ts", "TypeScript", 0, 14, 0, 5, 19
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/styles/global-theme.provider.tsx", "TypeScript React", 36, 0, 0, 5, 41
+"/Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/utils/error.util.ts", "TypeScript", 0, 6, 3, 2, 11
+"Total", "-", 468, 96, 47, 92, 703

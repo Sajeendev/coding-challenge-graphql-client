@@ -1,0 +1,63 @@
+Date : 2022-06-15 09:47:42
+Directory : /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src
+Total : 25 files,  564 codes, 47 comments, 92 blanks, all 703 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| TypeScript React |         15 |        468 |         26 |         71 |        565 |
+| TypeScript       |         10 |         96 |         21 |         21 |        138 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                       | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                          |         25 |        564 |         47 |         92 |        703 |
+| config                                                                                                                                     |          1 |          3 |          4 |          1 |          8 |
+| constants                                                                                                                                  |          1 |         10 |          0 |          1 |         11 |
+| routes                                                                                                                                     |          2 |         19 |          0 |          5 |         24 |
+| screens                                                                                                                                    |         10 |        368 |         26 |         54 |        448 |
+| screens/dashboard                                                                                                                          |          7 |        347 |         18 |         44 |        409 |
+| screens/error                                                                                                                              |          1 |          4 |          0 |          2 |          6 |
+| screens/home                                                                                                                               |          1 |         13 |          8 |          6 |         27 |
+| screens/search                                                                                                                             |          1 |          4 |          0 |          2 |          6 |
+| state                                                                                                                                      |          4 |         72 |          9 |         14 |         95 |
+| state/flight-search                                                                                                                        |          1 |         47 |          9 |          5 |         61 |
+| state/interfaces                                                                                                                           |          1 |          5 |          0 |          1 |          6 |
+| styles                                                                                                                                     |          1 |         36 |          0 |          5 |         41 |
+| utils                                                                                                                                      |          1 |          6 |          3 |          2 |         11 |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                                                                   | language         | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/App.test.tsx                                        | TypeScript React |          8 |          0 |          2 |         10 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/App.tsx                                             | TypeScript React |         11 |          0 |          3 |         14 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/config/env-variables.ts                             | TypeScript       |          3 |          4 |          1 |          8 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/constants/menu.enum.ts                              | TypeScript       |         10 |          0 |          1 |         11 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/index.tsx                                           | TypeScript React |         30 |          0 |          3 |         33 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/react-app-env.d.ts                                  | TypeScript       |          0 |          1 |          1 |          2 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/routes/app-url.enum.ts                              | TypeScript       |          4 |          0 |          1 |          5 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/routes/app.routes.tsx                               | TypeScript React |         15 |          0 |          4 |         19 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/account-menu.component.tsx        | TypeScript React |        111 |          6 |         14 |        131 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/app-bar.component.tsx             | TypeScript React |         63 |          0 |          7 |         70 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/dashboard.screen.tsx              | TypeScript React |         29 |          6 |          5 |         40 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/drawer.component.tsx              | TypeScript React |         39 |          0 |          4 |         43 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/drop-down-menu-list.component.tsx | TypeScript React |         70 |          6 |          6 |         82 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/menu-button.component.tsx         | TypeScript React |         12 |          0 |          4 |         16 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/dashboard/menu-list-item.component.tsx      | TypeScript React |         23 |          0 |          4 |         27 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/error/not-found.screen.tsx                  | TypeScript React |          4 |          0 |          2 |          6 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/home/home.screen.tsx                        | TypeScript React |         13 |          8 |          6 |         27 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/screens/search/search.screen.tsx                    | TypeScript React |          4 |          0 |          2 |          6 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/setupTests.ts                                       | TypeScript       |          1 |          4 |          1 |          6 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/state/flight-search/get-locations.slice.ts          | TypeScript       |         47 |          9 |          5 |         61 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/state/interfaces/default.state.interface.ts         | TypeScript       |          5 |          0 |          1 |          6 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/state/root.reducer.ts                               | TypeScript       |          6 |          0 |          3 |          9 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/state/store.ts                                      | TypeScript       |         14 |          0 |          5 |         19 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/styles/global-theme.provider.tsx                    | TypeScript React |         36 |          0 |          5 |         41 |
+| /Users/sajeenthan/Testspace/client-server/edreams/flight-searching-test-app/client/src/utils/error.util.ts                                 | TypeScript       |          6 |          3 |          2 |         11 |
+| Total                                                                                                                                      |                  |        564 |         47 |         92 |        703 |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
