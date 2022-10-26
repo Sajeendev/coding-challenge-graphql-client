@@ -37,13 +37,14 @@ const LocationDropDownListComponant = ({
           <em>None</em>
         </MenuItem>
 
-        {locations?.map((location, i) => {
-          return (
-            <MenuItem value={location?.name} key={i}>
-              {location?.name}
-            </MenuItem>
-          );
-        })}
+        {locations?.length &&
+          locations?.map((location, i) => {
+            return (
+              <MenuItem value={location?.name} key={i}>
+                {location?.name}
+              </MenuItem>
+            );
+          })}
       </Select>
     </FormControl>
   );

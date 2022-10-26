@@ -8,10 +8,10 @@ import {
 import { DatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocationQuery } from '../../queries/locations.queries';
 import { AppUrlEnum } from '../../routes/app-url.enum';
-import { getItinerariesAction } from '../../state/flight-search/get-itineraries.slice';
 import { searchParamsAction } from '../../state/flight-search/search-params.slice';
 import { useAppDispatch, useAppSelector } from '../../state/store';
 import { RectangularSkeletonComponent } from '../skeletons/skeleton.component';
@@ -30,6 +30,14 @@ const SearchBoxComponent = ({
 }: PropTypes) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
+  const { refetch } = useLocationQuery();
+
+  useEffect(() => {
+    if (!locations?.length) {
+      refetch();
+    }
+  }, [locations?.length, refetch]);
 
   /**
    * Global state
@@ -64,7 +72,6 @@ const SearchBoxComponent = ({
   const handleSearch = useCallback(() => {
     isHomeScreen && navigate(AppUrlEnum.Result);
     dispatch(searchParamsAction(params));
-    dispatch(getItinerariesAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
@@ -76,7 +83,7 @@ const SearchBoxComponent = ({
         ) : (
           <LocationDropDownListComponant
             label="Departure"
-            value={params.departureLocation}
+            value={params?.departureLocation}
             locations={locations}
             handleChange={handleChangeDepartureLocation}
           />
@@ -88,7 +95,7 @@ const SearchBoxComponent = ({
         ) : (
           <LocationDropDownListComponant
             label="Arrival"
-            value={params.arrivalLocation}
+            value={params?.arrivalLocation}
             locations={locations}
             handleChange={handleChangeArrivalLocation}
           />
@@ -100,7 +107,7 @@ const SearchBoxComponent = ({
             // disablePast
             label="Departure date"
             inputFormat={'dd/MM/yyyy'}
-            value={params.departureDate}
+            value={params?.departureDate}
             onChange={handleChangeDepartureDate}
             renderInput={params => (
               <TextField

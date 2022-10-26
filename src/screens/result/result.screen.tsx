@@ -1,6 +1,7 @@
 import { Box, Paper } from '@mui/material';
 import SearchBoxComponent from '../../components/search-box/search-box-component';
 import { RectangularSkeletonComponent } from '../../components/skeletons/skeleton.component';
+import { useItineraryQuery } from '../../queries/itinerary.queries';
 import { useLocationQuery } from '../../queries/locations.queries';
 import { useAppSelector } from '../../state/store';
 import { globalProps } from '../../styles/global.props';
@@ -8,27 +9,31 @@ import { isEqualDates } from '../../utils/date.utils';
 import ResultItemComponent from './result-item.component';
 
 const ResultScreen = () => {
-  const { data, error, loading } = useLocationQuery();
-
-  const getItinerariesState = useAppSelector(
-    state => state.getItinerariesState
-  );
   const {
-    loading: itinerariesLoading,
-    success: itinerariesSuccess,
+    data: locationsData,
+    error: locationsError,
+    loading: locationsLoading,
+  } = useLocationQuery();
+
+  const {
     data: itinerariesData,
-  } = getItinerariesState;
+    error: itinerariesError,
+    loading: itinerariesLoading,
+  } = useItineraryQuery();
 
   const searchParamsState = useAppSelector(state => state.searchParamsState);
   const { params } = searchParamsState;
 
-  if (loading) {
+  if (locationsLoading || itinerariesLoading) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
+  if (locationsError || itinerariesError) {
     return <div>An error occurred</div>;
   }
+
+  if (!itinerariesData || !locationsData) return <div>No data!</div>;
+
   return (
     <Box sx={{ ...globalProps.box1200 }}>
       <Paper
@@ -40,8 +45,8 @@ const ResultScreen = () => {
         }}
       >
         <SearchBoxComponent
-          locations={data}
-          isLoading={loading}
+          locations={locationsData}
+          isLoading={locationsLoading}
           isHomeScreen={false}
         />
       </Paper>
@@ -49,21 +54,20 @@ const ResultScreen = () => {
       {itinerariesLoading ? (
         <RectangularSkeletonComponent height={700} />
       ) : (
-        itinerariesSuccess &&
-        itinerariesData
+        itinerariesData?.itineraries
           ?.filter(data =>
-            params.departureLocation
-              ? data?.departureLocation === params.departureLocation
+            params?.departureLocation
+              ? data?.departureLocation === params?.departureLocation
               : data
           )
           ?.filter(data =>
-            params.arrivalLocation
-              ? data?.arrivalLocation === params.arrivalLocation
+            params?.arrivalLocation
+              ? data?.arrivalLocation === params?.arrivalLocation
               : data
           )
           ?.filter(data =>
-            params.departureDate
-              ? isEqualDates(data?.departureDate, params.departureDate)
+            params?.departureDate
+              ? isEqualDates(data?.departureDate, params?.departureDate)
               : data
           )
           .sort((a, b) => a.price - b.price)

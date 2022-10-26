@@ -1,11 +1,11 @@
 import { Circle, Flight, FlightLand, FlightTakeoff } from '@mui/icons-material';
 import { Box, Fab, Grid, Paper, Stack, Typography } from '@mui/material';
-import { ItineraryDataInterface } from '../../state/flight-search/get-itineraries.slice';
+import { ItineraryInterface } from '../../queries/itinerary.queries';
 import { globalProps } from '../../styles/global.props';
 import { formatDateShort } from '../../utils/date.utils';
 
 interface PropTypes {
-  data: ItineraryDataInterface;
+  data: ItineraryInterface;
 }
 
 const ResultItemComponent = ({ data }: PropTypes) => {

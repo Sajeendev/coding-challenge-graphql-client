@@ -16,12 +16,12 @@ const cache = new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
-        clients: {
+        locations: {
           merge(existing, incoming) {
             return incoming;
           },
         },
-        projects: {
+        itineraries: {
           merge(existing, incoming) {
             return incoming;
           },
