@@ -18,3 +18,12 @@ export const formatDateShort = (date: Date | string) => {
 
   return '';
 };
+
+export const formatTimeShort = (date: Date | string) => {
+  // 08 Nov 2021
+  if (date) {
+    return format(new Date(date), 'h:m a');
+  }
+
+  return '';
+};

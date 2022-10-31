@@ -2,7 +2,7 @@ import { Circle, Flight, FlightLand, FlightTakeoff } from '@mui/icons-material';
 import { Box, Fab, Grid, Paper, Stack, Typography } from '@mui/material';
 import { ItineraryInterface } from '../../queries/itinerary.queries';
 import { globalProps } from '../../styles/global.props';
-import { formatDateShort } from '../../utils/date.utils';
+import { formatDateShort, formatTimeShort } from '../../utils/date.utils';
 
 interface PropTypes {
   data: ItineraryInterface;
@@ -33,17 +33,23 @@ const ResultItemComponent = ({ data }: PropTypes) => {
             </Stack>
 
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Box>
+              <Stack>
                 <Typography>{formatDateShort(data?.departureDate)}</Typography>
+                <Typography variant="subtitle2">
+                  {formatTimeShort(data?.departureDate)}
+                </Typography>
                 <FlightTakeoff color="secondary" />
                 <Typography> {data?.departureLocation}</Typography>
-              </Box>
+              </Stack>
               <Flight sx={{ color: 'text.secondary' }} />
-              <Box>
+              <Stack>
                 <Typography>{formatDateShort(data?.arrivalDate)}</Typography>
+                <Typography variant="subtitle2">
+                  {formatTimeShort(data?.arrivalDate)}
+                </Typography>
                 <FlightLand color="secondary" />
                 <Typography> {data?.arrivalLocation}</Typography>
-              </Box>
+              </Stack>
             </Box>
           </Stack>
         </Grid>
